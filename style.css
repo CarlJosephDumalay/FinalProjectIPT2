@@ -1,62 +1,206 @@
+/* General Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: url(gang.jpg);
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
     margin: 0;
     padding: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url(bg.jpg);
+    background-size: cover;
+    background-position: center;
+    color: #fff;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;  /* Ensure the body covers the entire height */
+    padding-top: 120px; /* Adjust according to header height */
+}
+
+/* Header */
+/* Header Styles */
+.header {
+    background: rgba(0, 0, 0, 0.7); /* Darker transparent background */
+    padding: 15px 50px; /* Adjusted padding for better alignment */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-start; /* Aligns items to the left */
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Reduced spacing between logo and title */
+}
+
+.logo-link {
+    display: flex;
     align-items: center;
 }
 
-.container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    max-width: 350px;
-    width: 100%;
+.logo {
+    max-width: 60px; /* Adjusted size for a sleeker look */
+    height: auto;
 }
 
 h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: rgb(173, 11, 11);
+    font-size: 38px;  /* Slightly smaller font for balance */
+    font-family: 'Montserrat', sans-serif;
+    color: #f39c12;  /* Vibrant yellow */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* Softer shadow */
+    margin: 0;
+    transition: color 0.3s ease;
 }
 
-#city-input {
-    padding: 12px;
+h1:hover {
+    color: #e67e22;  /* Subtle hover effect for interactivity */
+}
+
+
+/* Input Section */
+.input-section {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1; /* Allow the content section to grow and fill space */
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.3); /* A more transparent, frosted glass effect */
+    backdrop-filter: blur(15px); /* Enhanced blur for better effect */
+    padding: 60px;
+    border-radius: 30px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Increased shadow depth */
+    text-align: center;
+    max-width: 800px; /* Increased max-width to make the container wider */
     width: 100%;
-    font-size: 16px;
+    margin: 0 20px; /* Adds margin for better spacing on smaller screens */
+}
+
+
+#city-input {
+    padding: 15px;
+    width: 100%;
+    font-size: 20px;  /* Larger font size */
     border-radius: 25px;
-    border: white;
+    border: 2px solid #f39c12;  /* Match input border color with the theme */
     outline: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Increased margin for spacing */
+    transition: border-color 0.3s ease;
+}
+
+#city-input:focus {
+    border-color: #e67e22; /* Border color change on focus */
 }
 
 #search-btn {
-    padding: 12px 20px;
+    padding: 16px 20px; /* Slightly larger button */
     width: 100%;
-    background-color: rgb(218, 65, 27);
+    background-color: #d35400;  /* Orange theme for button */
     color: white;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     cursor: pointer;
-    font-size: 16px;
-    box-shadow: 0 4px 15px rgba(116, 235, 213, 0.4);
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#search-btn:hover {
+    background-color: #e67e22;  /* Slight color change on hover */
+    transform: translateY(-3px); /* Subtle lift effect */
 }
 
 #weather-container {
-    margin-top: 20px;
-    color: #555;
+    margin-top: 25px;
+    font-size: 22px;
+    color: #222;
 }
 
+#weather-container p {
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+#weather-icon {
+    width: 50px; /* Set the size of the weather icon */
+    vertical-align: middle; /* Align with the text */
+ }
+ 
+ #weather-image-container {
+    margin-top: 20px;
+ }
+ 
+ #weather-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+ }
+ 
+/* Map */
 #map {
-    height: 400px;
+    height: 500px; /* Increased map height */
+    width: 100%;
+    margin-top: 40px;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px; /* Reduced padding for a smaller look */
+    color: #fff;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.6); /* Lightened background */
     width: 100%;
     margin-top: 50px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Softer shadow */
 }
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px; /* Slightly smaller max-width */
+    margin: 0 auto;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between logo and text */
+}
+
+.footer-logo img {
+    max-width: 90px; /* Reduced logo size */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-logo img:hover {
+    transform: scale(1.1); /* Enlarge slightly on hover */
+    opacity: 0.9; /* Slight transparency on hover */
+}
+
+.footer-logo h1 {
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    color: #f1c40f;
+    margin: 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+    color: #ddd;
+    font-size: 13px;
+    margin: 0;
+}
+
