@@ -2,42 +2,120 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="shortcut icon" href="weathermaplogo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="websitelogo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeatherMap</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <header class="header">
+
+  </head>
+  
+    <body>
+
+<!-- Header Section -->
+<header class="header">
+  <div class="logo-container">
+    <img src="NewLogo.png" alt="WeatherMap Logo" class="logo">
+  </div>
+  <nav class="nav-menu">
+    <ul>
+      <li><a href="#welcome-section">Home</a></li>
+      <li><a href="#input-section">Service</a></li>
+      <li><a href="#contact-section">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <!-- Welcome Section -->
+  <section id="welcome-section" class="welcome-section">
+  <div class="welcome-container">
+    <h2>Welcome to WeatherMap</h2>
+    <p>Your trusted source for real-time weather updates, wherever you are.</p>
+  </div>
+</section>
+      
+      <!-- Input Section (Weather Info) -->
+      <section id="input-section" class="input-section">
+          
+          <div class="container">
+
+              <input type="text" id="city-input" placeholder="Enter city name..." />
+                <button id="search-btn">Get Weather and Map Location</button>
+
+              <div id="weather-container">
+                <p id="location">Location: Unknown</p>
+                <p id="temperature">Temperature: -</p>
+                <p id="description">Condition: -</p>
+              </div>
+
+              <div id="map"></div>
+
+          </div>
+
+        </section>
+      
+      <!-- Contact Section -->
+      <section id="contact-section" class="contact-section">
+          
+          <div class="form-container">
+
+              <h2>Get in Touch</h2>
+              <p>Have a question or just want to say hello? We’d love to hear from you.</p>
+
+              <form id="contact-form">
+                <div class="form-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="from_name" name="from_name" placeholder="Your Name" required>
+                </div>
+            
+                <div class="form-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="from_email" name="from_email" placeholder="Your Email" required>
+                </div>
+            
+                <div class="form-group">
+                <i class="fas fa-comment"></i>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
+      
+                <button type="submit" class="btn">Send Message</button>
+
+              </form>
+
+              <p id="response-message"></p>
+
+          </div>
+        </section>
+        
+     
+      <!-- JavaScript for Weather Input Section -->
+      <script src="script.js"></script>
+  
+      <!-- JavaScript for Contact Section -->
+      <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+      <script src="scriptcontact.js"></script>
+
+
+    </body>
+  </html>
+  
+
+
+
+ <!--   <header class="header">
       <div class="header-content">
         <a href="index.html" class="logo-link">
           <img src="weathermaplogo.png" alt="Logo" class="logo">
         </a>
         <h1>WeatherMap</h1>
       </div>
-    </header>
+    </header>  -->
 
-    
-  </head>
-  <body>
-    <section class="input-section">
-      <div class="container">
-        <input type="text" id="city-input" placeholder="Enter city name..." />
-        <button id="search-btn">Get Weather</button>
-        <div id="weather-container">
-          <p id="location">Location: Unknown</p>
-          <p id="temperature">Temperature: -</p>
-          <p id="description">Condition: -</p>
-        </div>
-        <div id="map"></div>
-      </div>
-    </section>
-   
-<footer>
+  <!--<footer>
     <div class="footer-content">
         <div class="footer-logo">
             <a href="index.html">
@@ -47,9 +125,4 @@
         </div>
         <p>&copy; 2024 WeatherMap. All rights reserved.</p>
     </div>
-</footer>
-
-
-    <script src="script.js"></script>
-  </body>
-</html>
+</footer> -->

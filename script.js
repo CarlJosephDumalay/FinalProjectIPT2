@@ -1,3 +1,9 @@
+//JAVASCRIPT FOR INPUT SECTION USING OPENSTREETMAP AND OPENWEATHERMAP
+//JAVASCRIPT FOR INPUT SECTION USING OPENSTREETMAP AND OPENWEATHERMAP
+//JAVASCRIPT FOR INPUT SECTION USING OPENSTREETMAP AND OPENWEATHERMAP
+
+
+
 const apikey = '5a13721d4f9300f0d0afeac7d1cb5fcf';
 
 const cityInput = document.getElementById('city-input');
@@ -60,3 +66,7 @@ searchBtn.addEventListener('click', () => {
         alert('Please enter a city name.');
     }
 });
+
+
+
+

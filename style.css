@@ -1,206 +1,472 @@
 /* General Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url(bg.jpg);
+    background: linear-gradient(135deg, #213A57 10%, #14919B 100%);
     background-size: cover;
     background-position: center;
     color: #fff;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;  /* Ensure the body covers the entire height */
-    padding-top: 120px; /* Adjust according to header height */
+    min-height: 100vh;
+    padding-top: 10px;
+    width: 100%; /* Set the body width to 100% */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+/* Custom Scrollbar for WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+    background-color: rgba(255, 255, 255, 0.1); /* Background color of the scrollbar */
 }
 
-/* Header */
-/* Header Styles */
+::-webkit-scrollbar-thumb {
+    background-color: #45DFB1; /* Color of the draggable part of the scrollbar */
+    border-radius: 10px; /* Roundness of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #14919B; /* Change color on hover */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2); /* Color of the track */
+}
+
+/* Header Section */
 .header {
-    background: rgba(0, 0, 0, 0.7); /* Darker transparent background */
-    padding: 15px 50px; /* Adjusted padding for better alignment */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px 40px;
+    background-color: #0B6477;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
     position: fixed;
-    top: 0;
+    top: 0; 
     width: 100%;
-    z-index: 10;
-    display: flex;
-    justify-content: flex-start; /* Aligns items to the left */
-    align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
 }
 
-.header-content {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Reduced spacing between logo and title */
-}
-
-.logo-link {
+.logo-container {
     display: flex;
     align-items: center;
 }
 
 .logo {
-    max-width: 60px; /* Adjusted size for a sleeker look */
-    height: auto;
+    width: 300px; /* Adjust if necessary for your new logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 15px; /* You can remove this if there's no text */
 }
 
-h1 {
-    font-size: 38px;  /* Slightly smaller font for balance */
-    font-family: 'Montserrat', sans-serif;
-    color: #f39c12;  /* Vibrant yellow */
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* Softer shadow */
+/* Navigation Menu Styles */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Aligns the nav to the right */
+    padding-right: 40px; /* Add this line for extra space on the right */
+}
+
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
     margin: 0;
-    transition: color 0.3s ease;
+    padding: 0;
 }
 
-h1:hover {
-    color: #e67e22;  /* Subtle hover effect for interactivity */
+.nav-menu li {
+    margin-right: 20px; /* Spacing between the nav items */
 }
 
+.nav-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 15px; /* Padding around links for better click area */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s; /* Transition effects */
+}
+
+.nav-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+    color: #45DFB1; /* Change color on hover */
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and nav */
+    padding: 20px 40px;
+    background-color: #0B6477;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    position: fixed;
+    top: 0; 
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 300px; /* Adjust if necessary for your new logo */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Navigation Menu Styles */
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin-right: 30px; /* Increased spacing between nav items */
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Added transform for scale effect */
+}
+
+.nav-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #45DFB1;
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* Active class for current page link */
+.nav-menu a.active {
+    background-color: #45DFB1; /* Highlight active link */
+    color: #fff;
+}
+
+/* Smooth Scroll Effect */
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+
+
+
+
+
+
+/* Welcome Section */
+/* Welcome Section */
+/* Welcome Section */
+.welcome-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    padding: 0; /* Remove padding to allow full coverage */
+    background-size: 200% 200%; /* For animation */
+    animation: gradientShift 8s ease infinite; /* Gradient animation */
+    text-align: center;
+    color: #fff;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.welcome-container {
+    max-width: 800px; /* Slightly smaller for better focus */
+    background: rgba(255, 255, 255, 0.2); /* Slightly more opaque background */
+    padding: 60px; /* Increased padding for a spacious feel */
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Deeper shadow for more depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Subtle hover effect */
+}
+
+.welcome-container:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+.welcome-section h2 {
+    font-size: clamp(36px, 6vw, 54px); /* Adjusted font size */
+    font-weight: 800; /* Bolder font weight */
+    color: #45DFB1;
+    margin-bottom: 20px;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); /* Enhanced text shadow */
+}
+
+.welcome-section p {
+    font-size: clamp(18px, 3vw, 23px); /* Adjusted font size */
+    font-weight: 400; /* Normal weight */
+    color: #f0f0f0;
+    margin-top: 0;
+    line-height: 1.8;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Enhanced text shadow */
+}
+
+
+/*CSS FOR INPUT SECTION*/
+/*CSS FOR INPUT SECTION*/
+/*CSS FOR INPUT SECTION*/
 
 /* Input Section */
 .input-section {
     margin-top: 30px;
     display: flex;
     justify-content: center;
-    flex-grow: 1; /* Allow the content section to grow and fill space */
+    width: 100%;
+    padding: 50px 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.3); /* A more transparent, frosted glass effect */
-    backdrop-filter: blur(15px); /* Enhanced blur for better effect */
-    padding: 60px;
-    border-radius: 30px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Increased shadow depth */
+    background: rgba(255, 255, 255, 0.2); /* Increase opacity */
+    backdrop-filter: blur(20px) contrast(1.2); /* Increase contrast for better legibility */
+    padding: 50px; /* Increase padding */
+    border-radius: 25px; /* Smoother corner */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Softer, deeper shadow */
     text-align: center;
-    max-width: 800px; /* Increased max-width to make the container wider */
+    max-width: 700px;
     width: 100%;
-    margin: 0 20px; /* Adds margin for better spacing on smaller screens */
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-
+/* Input Field Styling */
 #city-input {
-    padding: 15px;
+    padding: 18px;
     width: 100%;
-    font-size: 20px;  /* Larger font size */
-    border-radius: 25px;
-    border: 2px solid #f39c12;  /* Match input border color with the theme */
-    outline: none;
-    margin-bottom: 20px; /* Increased margin for spacing */
-    transition: border-color 0.3s ease;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly more opaque */
+    color: #fff;
+    margin-bottom: 20px;
+    transition: border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
+
 
 #city-input:focus {
-    border-color: #e67e22; /* Border color change on focus */
+    border-color: #007BFF; /* Change the border to a blue shade */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6), 0 0 15px rgba(0, 123, 255, 0.3); /* Blue glow effect */
+    outline: none;
 }
 
 #search-btn {
-    padding: 16px 20px; /* Slightly larger button */
-    width: 100%;
-    background-color: #d35400;  /* Orange theme for button */
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #213A57, #0B6477);
     color: white;
     border: none;
-    border-radius: 30px;
+    border-radius: 50px;
     cursor: pointer;
     font-size: 18px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease-in-out, transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow */
 }
 
 #search-btn:hover {
-    background-color: #e67e22;  /* Slight color change on hover */
-    transform: translateY(-3px); /* Subtle lift effect */
+    transform: scale(1.07); /* Slightly more scaling on hover */
+    background: linear-gradient(135deg, #14919B, #0AD1C8 ,#45DFB1); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
 }
 
+/* Weather Container */
 #weather-container {
     margin-top: 25px;
-    font-size: 22px;
-    color: #222;
+    font-size: 20px;
+    color: #eee; /* Slightly brighter */
 }
 
 #weather-container p {
-    margin: 15px 0;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    font-weight: bold;
-}
-
-#weather-icon {
-    width: 50px; /* Set the size of the weather icon */
-    vertical-align: middle; /* Align with the text */
- }
- 
- #weather-image-container {
-    margin-top: 20px;
- }
- 
- #weather-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
- }
- 
-/* Map */
-#map {
-    height: 500px; /* Increased map height */
-    width: 100%;
-    margin-top: 40px;
-    border-radius: 20px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px; /* Reduced padding for a smaller look */
+    background: rgba(255, 255, 255, 0.25); /* More opaque background */
+    border-radius: 15px; /* Smoother border */
+    padding: 15px; /* Larger padding */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Deeper shadow */
     color: #fff;
-    font-size: 14px;
-    background: rgba(0, 0, 0, 0.6); /* Lightened background */
+    font-weight: 500; /* Slightly bolder font */
+}
+
+#map {
+    height: 450px; /* Taller map */
     width: 100%;
-    margin-top: 50px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Softer shadow */
+    margin-top: 25px;
+    border-radius: 20px; /* Smoother corners */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35); /* Darker shadow */
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+
+
+
+/*CSS FOR CONTACT SECTION*/
+/*CSS FOR CONTACT SECTION*/
+/*CSS FOR CONTACT SECTION*/
+
+
+
+/* Contact Section */
+.contact-section {
+    margin-top: 30px;
+    padding: 50px 20px;
     width: 100%;
-    max-width: 1000px; /* Slightly smaller max-width */
-    margin: 0 auto;
-    padding: 10px;
-    flex-wrap: wrap;
-}
-
-.footer-logo {
     display: flex;
-    align-items: center;
-    gap: 15px; /* Space between logo and text */
+    justify-content: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.footer-logo img {
-    max-width: 90px; /* Reduced logo size */
-    transition: transform 0.3s ease, opacity 0.3s ease;
+
+.form-container {
+    background: linear-gradient(135deg, rgba(33, 58, 87, 0.15), rgba(0, 100, 119, 0.05));
+    padding: 50px 40px;
+    border-radius: 25px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.35); /* Subtle border */
 }
 
-.footer-logo img:hover {
-    transform: scale(1.1); /* Enlarge slightly on hover */
-    opacity: 0.9; /* Slight transparency on hover */
+.form-container:hover {
+    transform: translateY(-12px); /* Slightly higher on hover */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2); /* Larger shadow */
 }
 
-.footer-logo h1 {
-    font-size: 24px;
-    font-family: 'Montserrat', sans-serif;
-    color: #f1c40f;
-    margin: 0;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+/* Headings and Text */
+h2 {
+    margin-bottom: 15px;
+    font-size: 30px;
+    color: #80ED99;
+    font-weight: 700;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Light shadow */
 }
 
-footer p {
-    color: #ddd;
-    font-size: 13px;
-    margin: 0;
+p {
+    margin-bottom: 25px;
+    font-size: 17px;
+    color: #eee; /* Slightly brighter text */
+    line-height: 1.6; /* Improve readability */
+}   
+
+/* Form Inputs */
+form {
+    display: flex;
+    flex-direction: column;
 }
 
+input, textarea {
+    padding: 18px;
+    margin: 15px 0;
+    border: 1px solid rgba(255, 255, 255, 0.581);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 17px;
+    transition: border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    width: 100%; /* Ensure full width inside the container */
+    max-width: 320px; /* Set a max width to limit how long they can get */
+}
+
+input:focus, textarea:focus {
+    border-color: #007BFF; /* Change the border to a blue shade */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6), 0 0 15px rgba(0, 123, 255, 0.3); /* Blue glow effect */
+    outline: none;
+}
+
+textarea {
+    height: 140px; /* Slightly taller */
+    resize: none;
+    max-width: 320px; /* Limit the width of the textarea as well */
+}
+
+/* Button Styling */
+button {
+    padding: 18px 40px; /* More padding */
+    background: linear-gradient(135deg, #213A57, #0B6477);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 18px; /* Larger font size */
+    transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Larger shadow */
+}
+
+input:focus, textarea:focus {
+    border-color: #14919B; /* Teal blue for the border */
+    box-shadow: 0 0 8px rgba(20, 145, 155, 0.6), 0 0 15px rgba(10, 209, 200, 0.4), 0 0 20px rgba(69, 223, 177, 0.3); /* Multi-tone teal glow effect */
+}
+
+
+button:active {
+    transform: scale(1); /* No scale on click */
+}
+
+#response-message {
+    margin-top: 20px;
+    font-size: 15px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Glowing effect */
+    font-weight: 500;
+}
+
+/* Input with Icons */
+input, textarea {
+    position: relative;
+    padding-left: 40px; /* Space for icons */
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group label {
+    display: none;
+}
+
+.form-group i {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+/*placeholder*/
+
+::placeholder {
+    color: rgba(235, 234, 234, 0.866);
+    opacity: 5; /* Ensure full opacity for the placeholder */
+  }
+
+  input::placeholder,
+textarea::placeholder {
+    transition: opacity 0.3s ease;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+    opacity: 0.5; /* Fade out on focus */
+}
