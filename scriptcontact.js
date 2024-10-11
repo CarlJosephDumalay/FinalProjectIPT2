@@ -14,7 +14,7 @@
         // Send the form using EmailJS
         emailjs.sendForm('service_h4g1pf2', 'template_ftjuuzx', this)
             .then(function(response) {
-                document.getElementById('response-message').textContent = 'Message sent successfully!';
+                document.getElementById('response-message').textContent = 'Thank you! Your message has been sent.';
                 document.getElementById('contact-form').reset(); // This clears the form
             }, function(error) {
                 document.getElementById('response-message').textContent = 'Failed to send message. Please try again later.';
@@ -37,6 +37,11 @@ window.addEventListener('scroll', () => {
         if (scrollY >= sectionTop - sectionHeight / 3) {
             current = section.getAttribute('id');
         }
+    });
+
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
     navLinks.forEach(link => {

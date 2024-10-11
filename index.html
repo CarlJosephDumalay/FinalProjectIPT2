@@ -32,19 +32,21 @@
 
   <!-- Welcome Section -->
   <section id="welcome-section" class="welcome-section">
-  <div class="welcome-container">
-    <h2>Welcome to WeatherMap</h2>
-    <p>Your trusted source for real-time weather updates, wherever you are.</p>
-  </div>
-</section>
+    <div class="welcome-container">
+      <h2>Welcome to WeatherMap</h2>
+      <p>Your trusted source for real-time weather updates, wherever you are.</p>
+      <a href="#input-section" class="explore-button">Explore WeatherMap</a>
+    </div>
+  </section>
       
       <!-- Input Section (Weather Info) -->
       <section id="input-section" class="input-section">
           
           <div class="container">
 
-              <input type="text" id="city-input" placeholder="Enter city name..." />
-                <button id="search-btn">Get Weather and Map Location</button>
+            <input type="text" id="city-input" placeholder="Enter city name..." aria-label="Enter city name" />
+            <button id="search-btn" aria-label="Search for weather and map location">Get Weather and Map Location</button>
+            
 
               <div id="weather-container">
                 <p id="location">Location: Unknown</p>
@@ -99,6 +101,22 @@
       <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
       <script src="scriptcontact.js"></script>
 
+      <!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="NewLogo.png" alt="WeatherMap Logo" class="footer-logo-img">
+    </div>
+    <div class="footer-links">
+      <a href="#welcome-section">Home</a>
+      <a href="#input-section">Service</a>
+      <a href="#contact-section">Contact Us</a>
+    </div>
+    <div class="footer-credits">
+      <p>&copy; 2024 WeatherMap. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
     </body>
   </html>
@@ -106,23 +124,3 @@
 
 
 
- <!--   <header class="header">
-      <div class="header-content">
-        <a href="index.html" class="logo-link">
-          <img src="weathermaplogo.png" alt="Logo" class="logo">
-        </a>
-        <h1>WeatherMap</h1>
-      </div>
-    </header>  -->
-
-  <!--<footer>
-    <div class="footer-content">
-        <div class="footer-logo">
-            <a href="index.html">
-                <img src="weathermaplogo.png" alt="Company Logo" />
-            </a>
-            <h1>WeatherMap</h1>
-        </div>
-        <p>&copy; 2024 WeatherMap. All rights reserved.</p>
-    </div>
-</footer> -->

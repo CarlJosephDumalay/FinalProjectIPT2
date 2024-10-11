@@ -14,19 +14,27 @@ body {
     width: 100%; /* Set the body width to 100% */
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
+
+
 /* Custom Scrollbar for WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
     width: 12px; /* Width of the scrollbar */
     background-color: rgba(255, 255, 255, 0.1); /* Background color of the scrollbar */
 }
 
+::-webkit-scrollbar:hover {
+    width: 14px;
+}
+
 ::-webkit-scrollbar-thumb {
-    background-color: #45DFB1; /* Color of the draggable part of the scrollbar */
-    border-radius: 10px; /* Roundness of the scrollbar */
+    background-color: #45DFB1;
+    border-radius: 20px; /* Increased roundness */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Inner shadow */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #14919B; /* Change color on hover */
+    background-color: #14919B;
+    box-shadow: 0 0 10px rgba(69, 223, 177, 0.8); /* Glow effect */
 }
 
 ::-webkit-scrollbar-track {
@@ -45,6 +53,7 @@ body {
     top: 0; 
     width: 100%;
     z-index: 1000;
+    
 }
 
 .logo-container {
@@ -56,7 +65,13 @@ body {
     width: 300px; /* Adjust if necessary for your new logo */
     height: auto; /* Maintain aspect ratio */
     margin-right: 15px; /* You can remove this if there's no text */
+    transition: transform 0.3s ease;
 }
+
+.logo:hover {
+    transform: scale(1.1); /* Zoom in slightly */
+}
+
 
 /* Navigation Menu Styles */
 .nav-menu {
@@ -86,71 +101,20 @@ body {
     padding: 10px 15px; /* Padding around links for better click area */
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s, color 0.3s; /* Transition effects */
+    border: 2px solid transparent; /* Transparent border */
+    padding: 10px 20px;
+    transition: border-color 0.3s, color 0.3s, transform 0.3s;
 }
 
 .nav-menu a:hover {
     background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+    box-shadow: 0 0 10px rgba(69, 223, 177, 0.5); /* Glow effect */
+    border-color: #45DFB1; /* Border appears on hover */
     color: #45DFB1; /* Change color on hover */
+    transform: scale(1.05);
 }
 
-/* Header Section */
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Space between logo and nav */
-    padding: 20px 40px;
-    background-color: #0B6477;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-    position: fixed;
-    top: 0; 
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
-    transition: background-color 0.3s; /* Smooth transition for background color */
-}
 
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.logo {
-    width: 300px; /* Adjust if necessary for your new logo */
-    height: auto; /* Maintain aspect ratio */
-}
-
-/* Navigation Menu Styles */
-.nav-menu {
-    display: flex;
-    align-items: center;
-}
-
-.nav-menu ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-menu li {
-    margin-right: 30px; /* Increased spacing between nav items */
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Added transform for scale effect */
-}
-
-.nav-menu a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #45DFB1;
-    transform: scale(1.05); /* Scale effect on hover */
-}
 
 /* Active class for current page link */
 .nav-menu a.active {
@@ -163,6 +127,11 @@ html {
     scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
 
+
+.header.scrolled {
+    background-color: #0B6477; /* Darken the background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); /* Darker shadow */
+}
 
 
 
@@ -177,11 +146,12 @@ html {
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* Full viewport height */
-    padding: 0; /* Remove padding to allow full coverage */
-    background-size: 200% 200%; /* For animation */
-    animation: gradientShift 8s ease infinite; /* Gradient animation */
+    padding: 0;
+    background-size: 200% 200%;
+    animation: gradientShift 10s ease infinite;
     text-align: center;
     color: #fff;
+    position: relative;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -194,35 +164,58 @@ html {
 .welcome-container {
     max-width: 800px; /* Slightly smaller for better focus */
     background: rgba(255, 255, 255, 0.2); /* Slightly more opaque background */
-    padding: 60px; /* Increased padding for a spacious feel */
-    border-radius: 25px;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Deeper shadow for more depth */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Subtle hover effect */
+    padding: 70px 50px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .welcome-container:hover {
-    transform: translateY(-10px); /* Slight lift on hover */
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    transform: translateY(-10px);
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.8);
 }
 
 .welcome-section h2 {
-    font-size: clamp(36px, 6vw, 54px); /* Adjusted font size */
-    font-weight: 800; /* Bolder font weight */
+    font-size: clamp(40px, 7vw, 60px);
+    font-weight: 900;
     color: #45DFB1;
     margin-bottom: 20px;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5); /* Enhanced text shadow */
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .welcome-section p {
-    font-size: clamp(18px, 3vw, 23px); /* Adjusted font size */
+    font-size: clamp(20px, 3.5vw, 22px);
     font-weight: 400; /* Normal weight */
-    color: #f0f0f0;
+    color: #e5e5e5;
     margin-top: 0;
     line-height: 1.8;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Enhanced text shadow */
+    text-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
 }
 
+/* Explore Button */
+.explore-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #45DFB1;
+    border: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explore-button:hover {
+    background-color: #2CB694;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
 
 /*CSS FOR INPUT SECTION*/
 /*CSS FOR INPUT SECTION*/
@@ -341,15 +334,16 @@ html {
     backdrop-filter: blur(20px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
     width: 100%;
-    max-width: 450px;
+    max-width: 500px; /* Slightly wider */
     text-align: center;
-    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-    border: 1px solid rgba(255, 255, 255, 0.35); /* Subtle border */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, border-color 0.4s ease-in-out;
 }
 
 .form-container:hover {
-    transform: translateY(-12px); /* Slightly higher on hover */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2); /* Larger shadow */
+    transform: translateY(-10px); /* Hover effect */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+    border-color: #80ED99; /* Glowing border effect */
 }
 
 /* Headings and Text */
@@ -358,12 +352,14 @@ h2 {
     font-size: 30px;
     color: #80ED99;
     font-weight: 700;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Light shadow */
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4); /* Deeper shadow */
+    
 }
 
 p {
     margin-bottom: 25px;
-    font-size: 17px;
+    font-size: 18px; /* Slightly larger text */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     color: #eee; /* Slightly brighter text */
     line-height: 1.6; /* Improve readability */
 }   
@@ -388,9 +384,10 @@ input, textarea {
 }
 
 input:focus, textarea:focus {
-    border-color: #007BFF; /* Change the border to a blue shade */
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6), 0 0 15px rgba(0, 123, 255, 0.3); /* Blue glow effect */
+    border-color: #80ED99; /* Greenish glow */
+    box-shadow: 0 0 8px rgba(128, 237, 153, 0.6), 0 0 15px rgba(128, 237, 153, 0.4);
     outline: none;
+    transform: scale(1.02); /* Slightly enlarge on focus */
 }
 
 textarea {
@@ -401,16 +398,21 @@ textarea {
 
 /* Button Styling */
 button {
-    padding: 18px 40px; /* More padding */
+    padding: 18px 50px; /* Slightly larger */
     background: linear-gradient(135deg, #213A57, #0B6477);
     color: white;
     border: none;
     border-radius: 50px;
     cursor: pointer;
     margin-top: 20px;
-    font-size: 18px; /* Larger font size */
+    font-size: 18px;
     transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Larger shadow */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(69, 223, 177, 0.4); /* Teal-colored glow */
 }
 
 input:focus, textarea:focus {
@@ -453,6 +455,10 @@ input, textarea {
     color: rgba(255, 255, 255, 0.7);
 }
 
+.form-group i:hover {
+    color: #80ED99; /* Change icon color on hover */
+    transform: scale(1.1); /* Slightly enlarge the icon */
+}
 
 /*placeholder*/
 
@@ -463,10 +469,102 @@ input, textarea {
 
   input::placeholder,
 textarea::placeholder {
-    transition: opacity 0.3s ease;
+    opacity: 0.7;
+    transition: opacity 0.4s ease;
 }
 
 input:focus::placeholder,
 textarea:focus::placeholder {
     opacity: 0.5; /* Fade out on focus */
+}
+
+
+
+
+
+
+
+
+
+
+/* Footer Styles */
+.footer {
+    background-color: #0B6477; /* Match the header background color */
+    color: #fff;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo-img {
+    width: 300px; /* Adjust the size as needed */
+    height: auto;
+    margin-right: 40px;
+}
+
+.footer-logo-img {
+    transition: transform 0.3s ease;
+}
+
+.footer-logo-img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+
+}
+
+.footer-links a:hover {
+    color: #45DFB1; /* Match the hover color to the header links */
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+    color: #45DFB1;
+
+}
+
+.footer-credits p {
+    font-size: 14px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-credits p:hover {
+    color: #fff; /* Brighten on hover */
+}
+.footer-container::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
 }
