@@ -16,6 +16,26 @@ body {
 }
 
 
+
+/* Keyframes for entrance animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-100px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  
+  .header {
+      animation: slideIn 1s ease-in-out;
+  }
+  
+  .welcome-container, .container, .footer {
+      animation: fadeIn 1.5s ease-in-out;
+  }
+
 /* Custom Scrollbar for WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
     width: 12px; /* Width of the scrollbar */
@@ -53,7 +73,7 @@ body {
     top: 0; 
     width: 100%;
     z-index: 1000;
-    
+    transition: background-color 0.3s ease;
 }
 
 .logo-container {
@@ -98,12 +118,33 @@ body {
     color: #fff;
     font-size: 18px;
     font-weight: 600;
-    padding: 10px 15px; /* Padding around links for better click area */
+    padding: 10px 20px;
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s, color 0.3s; /* Transition effects */
     border: 2px solid transparent; /* Transparent border */
     padding: 10px 20px;
     transition: border-color 0.3s, color 0.3s, transform 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+
+.nav-menu a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #45DFB1;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover::before {
+    width: 100%;
+    left: 0;
 }
 
 .nav-menu a:hover {
@@ -153,6 +194,7 @@ html {
     color: #fff;
     position: relative;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    animation: gradientShift 8s ease infinite;
 }
 
 @keyframes gradientShift {
@@ -174,8 +216,9 @@ html {
 
 .welcome-container:hover {
     transform: translateY(-10px);
-    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
 }
+
 
 .welcome-section h2 {
     font-size: clamp(40px, 7vw, 60px);
@@ -209,6 +252,7 @@ html {
     cursor: pointer;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
 }
 
 .explore-button:hover {
@@ -216,6 +260,12 @@ html {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
+
+
+
+
+
+
 
 /*CSS FOR INPUT SECTION*/
 /*CSS FOR INPUT SECTION*/
@@ -227,35 +277,54 @@ html {
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 50px 20px;
+    padding: 60px 20px; /* Increased padding for a more spacious feel */
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    
 }
 
 .container {
     background: rgba(255, 255, 255, 0.2); /* Increase opacity */
-    backdrop-filter: blur(20px) contrast(1.2); /* Increase contrast for better legibility */
-    padding: 50px; /* Increase padding */
-    border-radius: 25px; /* Smoother corner */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Softer, deeper shadow */
+    backdrop-filter: blur(20px) contrast(1.5); /* Increased contrast */
+    padding: 50px; /* Consistent padding */
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); /* Deeper shadow for more depth */
     text-align: center;
     max-width: 700px;
     width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth transition */
+}
+
+/* Hover effect */
+.container:hover {
+    transform: scale(1.05); /* Slightly increase size */
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5); /* Stronger shadow for hover */
+}
+
+/* Section Title */
+.section-title {
+    font-size: 28px; /* Larger title */
+    color: #fff; /* White title */
+    margin-bottom: 20px; /* Spacing below title */
 }
 
 /* Input Field Styling */
+/* Input Field Styling */
 #city-input {
-    padding: 18px;
+    padding: 15px;
     width: 100%;
     font-size: 18px;
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    background-color: rgba(255, 255, 255, 0.2); /* Slightly more opaque */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Slightly more visible border */
+    background-color: rgba(255, 255, 255, 0.3); /* Slightly more opaque */
     color: #fff;
     margin-bottom: 20px;
     transition: border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
+#city-input::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* Placeholder color */
+}
 
 #city-input:focus {
     border-color: #007BFF; /* Change the border to a blue shade */
@@ -263,6 +332,8 @@ html {
     outline: none;
 }
 
+
+/* Search Button */
 #search-btn {
     padding: 15px 30px;
     background: linear-gradient(135deg, #213A57, #0B6477);
@@ -273,213 +344,46 @@ html {
     font-size: 18px;
     transition: background-color 0.3s ease-in-out, transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
     margin-bottom: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 #search-btn:hover {
-    transform: scale(1.07); /* Slightly more scaling on hover */
-    background: linear-gradient(135deg, #14919B, #0AD1C8 ,#45DFB1); 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+    transform: scale(1.05); /* Slight scaling on hover */
+    background: linear-gradient(135deg, #14919B, #0AD1C8, #45DFB1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* More pronounced shadow */
 }
 
 /* Weather Container */
 #weather-container {
     margin-top: 25px;
     font-size: 20px;
-    color: #eee; /* Slightly brighter */
+    color: #eee;
 }
 
 #weather-container p {
-    background: rgba(255, 255, 255, 0.25); /* More opaque background */
-    border-radius: 15px; /* Smoother border */
-    padding: 15px; /* Larger padding */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25); /* Deeper shadow */
+    background: rgba(255, 255, 255, 0.3); /* More opaque background */
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
     color: #fff;
-    font-weight: 500; /* Slightly bolder font */
+    font-weight: 500;
+    transition: background-color 0.3s ease-in-out; /* Smooth background transition */
 }
 
+#weather-container p:hover {
+    background: rgba(255, 255, 255, 0.4); /* Lighter background on hover */
+}
+
+
+/* Map Container */
 #map {
-    height: 450px; /* Taller map */
+    height: 450px;
     width: 100%;
     margin-top: 25px;
-    border-radius: 20px; /* Smoother corners */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35); /* Darker shadow */
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border around the map */
 }
-
-
-
-
-
-/*CSS FOR CONTACT SECTION*/
-/*CSS FOR CONTACT SECTION*/
-/*CSS FOR CONTACT SECTION*/
-
-
-
-/* Contact Section */
-.contact-section {
-    margin-top: 30px;
-    padding: 50px 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-
-.form-container {
-    background: linear-gradient(135deg, rgba(33, 58, 87, 0.15), rgba(0, 100, 119, 0.05));
-    padding: 50px 40px;
-    border-radius: 25px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    width: 100%;
-    max-width: 500px; /* Slightly wider */
-    text-align: center;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out, border-color 0.4s ease-in-out;
-}
-
-.form-container:hover {
-    transform: translateY(-10px); /* Hover effect */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); /* Deeper shadow */
-    border-color: #80ED99; /* Glowing border effect */
-}
-
-/* Headings and Text */
-h2 {
-    margin-bottom: 15px;
-    font-size: 30px;
-    color: #80ED99;
-    font-weight: 700;
-    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.4); /* Deeper shadow */
-    
-}
-
-p {
-    margin-bottom: 25px;
-    font-size: 18px; /* Slightly larger text */
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    color: #eee; /* Slightly brighter text */
-    line-height: 1.6; /* Improve readability */
-}   
-
-/* Form Inputs */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-input, textarea {
-    padding: 18px;
-    margin: 15px 0;
-    border: 1px solid rgba(255, 255, 255, 0.581);
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    font-size: 17px;
-    transition: border-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-    width: 100%; /* Ensure full width inside the container */
-    max-width: 320px; /* Set a max width to limit how long they can get */
-}
-
-input:focus, textarea:focus {
-    border-color: #80ED99; /* Greenish glow */
-    box-shadow: 0 0 8px rgba(128, 237, 153, 0.6), 0 0 15px rgba(128, 237, 153, 0.4);
-    outline: none;
-    transform: scale(1.02); /* Slightly enlarge on focus */
-}
-
-textarea {
-    height: 140px; /* Slightly taller */
-    resize: none;
-    max-width: 320px; /* Limit the width of the textarea as well */
-}
-
-/* Button Styling */
-button {
-    padding: 18px 50px; /* Slightly larger */
-    background: linear-gradient(135deg, #213A57, #0B6477);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    margin-top: 20px;
-    font-size: 18px;
-    transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 35px rgba(69, 223, 177, 0.4); /* Teal-colored glow */
-}
-
-input:focus, textarea:focus {
-    border-color: #14919B; /* Teal blue for the border */
-    box-shadow: 0 0 8px rgba(20, 145, 155, 0.6), 0 0 15px rgba(10, 209, 200, 0.4), 0 0 20px rgba(69, 223, 177, 0.3); /* Multi-tone teal glow effect */
-}
-
-
-button:active {
-    transform: scale(1); /* No scale on click */
-}
-
-#response-message {
-    margin-top: 20px;
-    font-size: 15px;
-    color: #fff;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Glowing effect */
-    font-weight: 500;
-}
-
-/* Input with Icons */
-input, textarea {
-    position: relative;
-    padding-left: 40px; /* Space for icons */
-}
-
-.form-group {
-    position: relative;
-}
-
-.form-group label {
-    display: none;
-}
-
-.form-group i {
-    position: absolute;
-    left: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.form-group i:hover {
-    color: #80ED99; /* Change icon color on hover */
-    transform: scale(1.1); /* Slightly enlarge the icon */
-}
-
-/*placeholder*/
-
-::placeholder {
-    color: rgba(235, 234, 234, 0.866);
-    opacity: 5; /* Ensure full opacity for the placeholder */
-  }
-
-  input::placeholder,
-textarea::placeholder {
-    opacity: 0.7;
-    transition: opacity 0.4s ease;
-}
-
-input:focus::placeholder,
-textarea:focus::placeholder {
-    opacity: 0.5; /* Fade out on focus */
-}
-
-
-
 
 
 
